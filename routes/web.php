@@ -14,10 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //Home
-Route::get('/',[BarangController::class, 'indexNoLogin']); //iki terus ditambahi footer login register
+Route::get('/',[BarangController::class, 'indexNoLogin']);
 
 //Page
 Route::get('log',[BarangController::class, 'log']);
+Route::get('portfolio', function () {
+    return view('cv.index');
+});
 
 //Logged in
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
